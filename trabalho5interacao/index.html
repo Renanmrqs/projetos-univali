@@ -1,1 +1,107 @@
-
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade de JavaScript</title>
+    <style>
+        
+        .destaque {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        .novo-estilo {
+            background-color: #f0f8ff;
+            color: #006400;
+            font-weight: bold;
+            border: 2px dashed #ff6347;
+        }
+        
+        button {
+            margin: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Atividade de JavaScript</h1>
+    
+    <div id="atividade1">
+        <h2>1. Mensagem "Olá Mundo"</h2>
+        <button onclick="mostrarOlaMundo()">Mostrar Mensagem</button>
+        <p id="mensagem"></p>
+    </div>
+    
+    <div id="atividade2">
+        <h2>2. Soma de 2 inteiros</h2>
+        <label for="numero1">Número 1:</label>
+        <input type="number" id="numero1" value="">
+        <label for="numero2">Número 2:</label>
+        <input type="number" id="numero2" value="">
+        <button onclick="calcularSoma()">Calcular Soma</button>
+        <p id="resultado-soma"></p>
+    </div>
+    
+    <div id="elemento-por-id">
+        <h2>3. Alterar propriedade por id</h2>
+        <p id="texto-para-alterar">Este texto será alterado quando você clicar no botão abaixo.</p>
+        <button onclick="alterarPorId()">Alterar Texto por ID</button>
+    </div>
+    
+    <div>
+        <h2>4. Alterar propriedade por name</h2>
+        <p name="texto-por-name">Este elemento será modificado através do atributo name.</p>
+        <button onclick="alterarPorName()">Alterar por Name</button>
+    </div>
+    
+    <div>
+        <h2>5. Alterar propriedade por class</h2>
+        <p class="destaque">Primeiro elemento com classe "destaque".</p>
+        <p class="destaque">Segundo elemento com classe "destaque".</p>
+        <p class="destaque">Terceiro elemento com classe "destaque".</p>
+        <button onclick="alterarPorClass()">Alterar por Class</button>
+    </div>
+    
+    <script>
+        function mostrarOlaMundo() {
+            document.getElementById('mensagem').textContent = 'Olá Mundo!';
+        }
+        
+        function calcularSoma() {
+            const num1 = parseInt(document.getElementById('numero1').value);
+            const num2 = parseInt(document.getElementById('numero2').value);
+            const soma = num1 + num2;
+            document.getElementById('resultado-soma').textContent = `Resultado: ${num1} + ${num2} = ${soma}`;
+        }
+        
+        
+        function alterarPorId() {
+            const elemento = document.getElementById('texto-para-alterar');
+            elemento.textContent = 'Texto alterado com sucesso usando ID!';
+            elemento.style.color = 'red';
+            elemento.style.fontWeight = 'bold';
+        }
+        
+        function alterarPorName() {
+            const elementos = document.getElementsByName('texto-por-name');
+            for (let i = 0; i < elementos.length; i++) {
+                elementos[i].textContent = 'Elemento alterado via atributo NAME!';
+                elementos[i].style.backgroundColor = '#ffffe0';
+                elementos[i].style.padding = '10px';
+            }
+        }
+        
+        function alterarPorClass() {
+            const elementos = document.getElementsByClassName('destaque');
+            for (let i = 0; i < elementos.length; i++) {
+                elementos[i].classList.add('novo-estilo');
+                elementos[i].textContent = `Elemento ${i+1} modificado via CLASS!`;
+            }
+        }
+    </script>
+</body>
+</html>
